@@ -10,15 +10,20 @@ pizzaJson.map((item,index) => {
     pizzaItem.querySelector('.pizza-item--price').innerHTML = `R$ ${item.price.toFixed(2)}`;
     pizzaItem.querySelector('.pizza-item--name').innerHTML = item.name;
     pizzaItem.querySelector('.pizza-item--desc').innerHTML = item.description;
+
     pizzaItem.querySelector('a').addEventListener('click', (e) => { 
       e.preventDefault()
       let area = document.querySelector('.pizzaWindowArea');
+      document.querySelector('.pizzaWindowArea').style.opacity = 0;
         area.style.display = "flex";
-        area.style.opacity = 100;
-        document.querySelector('.pizzaBig img').src = item.img;
+         setTimeout(() => {
+          document.querySelector('.pizzaWindowArea').style.opacity = 1;
+         },200);
+            document.querySelector('.pizzaBig img').src = item.img;
+              document.querySelector('.pizzaInfo h1').innerHTML = item.name
+                document.querySelector(".pizzaInfo--desc").innerHTML = item.description;
+                  document.querySelector('.pizzaInfo--size') = `${item.sizes}`;
 
-        let info = document.querySelector('.pizzaWindowArea .pizzaInfo').append(area)
-        c(".pizzaInfo--desc").innerHTML = item.description;
     })
 
   c('.pizza-area').append(pizzaItem);
