@@ -15,11 +15,16 @@ pizzaJson.map((item,index) => {
     pizzaItem.querySelector('a').addEventListener('click', (e) => { 
       e.preventDefault()
       let key = e.target.closest('.pizza-item').getAttribute('data-key');
-      
+
             c('.pizzaBig img').src = pizzaJson[key].img;
             c('.pizzaInfo h1').innerHTML = pizzaJson[key].name;
             c(".pizzaInfo--desc").innerHTML = pizzaJson[key].description;
             c(".pizzaInfo--actualPrice").innerHTML = `R$ ${pizzaJson[key].price.toFixed(2)}`;
+            
+            document.querySelectorAll(".pizzaInfo--size").forEach((size, sizeIndex) => {
+              size.querySelector("span").innerHTML = pizzaJson[key].sizes[sizeIndex]
+            });
+            
 
             area.style.opacity = 0;
             area.style.display = "flex";
@@ -29,6 +34,7 @@ pizzaJson.map((item,index) => {
     });
 
   c('.pizza-area').append(pizzaItem);
+  
       // Atribuindo o PizzaItem A Pizza-area
 
 }) 
