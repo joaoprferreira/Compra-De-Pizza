@@ -21,8 +21,15 @@ pizzaJson.map((item,index) => {
             c(".pizzaInfo--desc").innerHTML = pizzaJson[key].description;
             c(".pizzaInfo--actualPrice").innerHTML = `R$ ${pizzaJson[key].price.toFixed(2)}`;
             
+            c('.pizzaInfo--size.selected').classList.remove("selected")
+
+
             document.querySelectorAll(".pizzaInfo--size").forEach((size, sizeIndex) => {
-              size.querySelector("span").innerHTML = pizzaJson[key].sizes[sizeIndex]
+               if(sizeIndex == 2){
+                 size.classList.add('selected');
+               }
+              size.querySelector("span").innerHTML = pizzaJson[key].sizes[sizeIndex];
+                
             });
             
 
