@@ -2,6 +2,8 @@ const c = (el) => {return document.querySelector(el)};
 const cs = (el) => {return document.querySelector(el)};
 const area = document.querySelector('.pizzaWindowArea');
 
+//Listagem das pizzas
+
 pizzaJson.map((item,index) => {
   let pizzaItem = c('.models .pizza-item').cloneNode(true);
       // Clonando um Elmento da arvore DOM 
@@ -44,4 +46,24 @@ pizzaJson.map((item,index) => {
   
       // Atribuindo o PizzaItem A Pizza-area
 
-}) 
+}) ;
+
+
+// EVENTOS DO MODAL 
+
+  
+
+  function closeModal(){
+      const modal = document.querySelector('.pizzaWindowArea');
+        setTimeout(() => { 
+          modal.style.opacity = 0;
+          modal.style.display = 'none';
+          modal.style.transition = '1s'
+        }, 500);
+      };
+
+    document.querySelectorAll(".pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton").forEach((item) => {
+      item.addEventListener('click', closeModal);
+    });
+    
+  
