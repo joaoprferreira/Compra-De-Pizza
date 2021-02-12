@@ -59,11 +59,18 @@ pizzaJson.map((item,index) => {
           modal.style.opacity = 0;
           modal.style.display = 'none';
           modal.style.transition = '1s'
-        }, 500);
+        }, 200);
       };
 
     document.querySelectorAll(".pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton").forEach((item) => {
       item.addEventListener('click', closeModal);
     });
+
+    document.querySelector('.pizzaInfo--qtmenos').addEventListener('click', () => {
+
+    });
     
+    document.querySelector('.pizzaInfo--qtmais').addEventListener('click', () => {
+
+    });
   
